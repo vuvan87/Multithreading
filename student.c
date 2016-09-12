@@ -10,8 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "os-sim.h"
-
-
 /*
  * current[] is an array of pointers to the currently running processes.
  * There is one array element corresponding to each CPU in the simulation.
@@ -32,8 +30,7 @@ static int scheduling_algorithm;
 static int count_cpu;
 
 static void enqueue(pcb_t* process) {
-        printf("enqueue\n");
-
+printf("enqueue\n");
     pthread_mutex_lock(&queue_mutex);
     if (head == NULL) {
         head = process;
