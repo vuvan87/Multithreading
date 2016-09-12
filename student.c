@@ -5,7 +5,6 @@
  * This file contains the CPU scheduler for the simulation.
  * Name: Van Vu
  */
-
 #include <assert.h>
 #include <pthread.h>
 #include <stdio.h>
@@ -196,8 +195,6 @@ extern void terminate(unsigned int cpu_id)
     pthread_mutex_unlock(&current_mutex);
     schedule(cpu_id);
 }
-
-
 /*
  * wake_up() is the handler called by the simulator when a process's I/O
  * request completes.  It should perform the following tasks:
