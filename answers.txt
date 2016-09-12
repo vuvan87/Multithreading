@@ -1,0 +1,64 @@
+CS 2200 Fall 2015
+Project 6
+Name: van vu
+GT Number: 902369724
+
+Problem 1B
+----------
+
+1-CPU: 
+# of Context Switches: 99
+Total execution time: 67.6 s
+Total time spent in READY state: 389.9 s
+2-CPU:
+# of Context Switches: 116
+Total execution time: 36.5 s
+Total time spent in READY state: 86.0 s
+4-CPU:
+# of Context Switches: 287
+Total execution time: 33.8 s
+Total time spent in READY state: 6.1 s
+
+Justification: as increasing the number of CPU, the execution time decreases. Especially, when changing from 1 to 2 CPU, the time reduced to a half. In fact, multiple CPUs will lead the program executed quicker, just like we type a document with two hands versus one hand, two hands should finish typing the document sooner. However, the number of CPUs and execution time is not lineared relationship, because we can not optimize the sequential program with mutiprocessor, therefore, time will decrease until some point when the program is sliced to sequential segments, at this point multiprocessor doesn't show change in execution time anymore.   
+
+Problem 2B
+----------
+
+800ms:
+# of Context Switches: 99
+Total execution time: 67.6 s
+Total time spent in READY state: 389.9 s
+600ms:
+# of Context Switches: 161
+Total execution time: 67.6 s
+Total time spent in READY state: 314.5 s
+400ms:
+# of Context Switches: 203
+Total execution time: 67.6 s
+Total time spent in READY state: 298.8 s
+200ms:
+# of Context Switches: 362
+Total execution time: 67.5 s
+Total time spent in READY state: 285.2 s
+
+Justification:
+When we increasing the timeslice, each process has a generous time interval to finish execution, there is no rush on it, therefore, other processes in the queue need to wait longer in line to get to the CPU. However, the shortest time slice may not be the best choice because this will not grant all processes finish execution at once, this will result in more context switch that lead to more consuming time, and is not handy when handle big program that need more time for each process to complete at once. 
+
+
+Problem 3B
+----------
+Static priority
+# of Context Switches: 168
+Total execution time: 68.8 s
+Total time spent in READY state: 137.1 s
+
+# of Context Switches: 362
+Total execution time: 67.5 s
+Total time spent in READY state: 285.2 s
+
+# of Context Switches: 99
+Total execution time: 67.6 s
+Total time spent in READY state: 389.9 s
+
+Justification:
+The static priority is expected to be closest to the SJF, compare to FIFO and RR. Indeed, its waiting time is the smallest. The reason is that these two algorithms slightly similar sort, when static priority prioritizes the highest assigned priority, and SJF prioritizes the smallest time. So, they aim on different variables but have the same sorting mechanism. Therefore, static priority have the closest data to the SJF. 
