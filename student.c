@@ -134,15 +134,6 @@ extern void idle(unsigned int cpu_id)
     pthread_mutex_unlock(&queue_mutex);
     schedule(cpu_id);
 
-    /*
-     * REMOVE THE LINE BELOW AFTER IMPLEMENTING IDLE()
-     *
-     * idle() must block when the ready queue is empty, or else the CPU threads
-     * will spin in a loop.  Until a ready queue is implemented, we'll put the
-     * thread to sleep to keep it from consuming 100% of the CPU time.  Once
-     * you implement a proper idle() function using a condition variable,
-     * remove the call to mt_safe_usleep() below.
-     */
 }
 
 
@@ -280,7 +271,6 @@ int main(int argc, char *argv[])
     count_cpu = cpu_count;
     pthread_cond_init(&queue_not_empty, 0);
 
-    /* FIX ME - Add support for -r and -p parameters*/
 
     /* Allocate the current[] array and its mutex */
     current = malloc(sizeof(pcb_t*) * cpu_count);
